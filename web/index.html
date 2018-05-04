@@ -1,0 +1,32 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/ocrapp.css" media="screen" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/shorten.js"></script>
+
+</head>
+<body>
+<div class="container">
+  <img src="assets/pile-of-poo_1f4a9.png" alt="logo" />
+  <h1><span style="color:black">OCR</span><span style="color:orange">APP</span></h1>
+  <h2>URL Shortener</h2>
+  
+  <form action="" id="shorten" >
+    <div class="fields">
+      <span>
+       <input placeholder="Long URL" id="url" type="text" />
+      </span>
+    <br />
+      <span class="result">
+       <input placeholder="Short URL" id="short" type="text" disabled/>
+      </span>
+    </div>
+    <div class="submit">
+      <input class="submit" id="submit-button" value="Submit" type="button" onclick="submitform()"/>
+      <div class="divider" />
+      <input class="btn" id="copy-button" value="Copy" type="button" onclick="copyresult()"/>
+    </div>
+  </form>
+</div>
+</body>
+</html>
