@@ -3,8 +3,8 @@ function isUrlValid(url) {
 }
 
 function submitform() {
-  var shortenAPI = "https://your aws api endpoint.amazonaws.com/prod/shorten"
-  var redirectAPI = "https://your aws api endpoint.amazonaws.com/prod"
+  var shortenAPI = ""
+  var redirectAPI = ""
   longURL = $('#url').val();
   
   if (! isUrlValid(longURL)) {

@@ -44,6 +44,13 @@ body{
   font-size:1.4em;
 }
 
+.container p{
+  font-family:"Pt Sans", helvetica, sans-serif;
+  color:#fff; 
+  text-align:center;
+  font-size:1.2em;
+}
+
 .container form span:before {
   counter-increment:section;
   content:counter(section);
