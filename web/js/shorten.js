@@ -3,8 +3,8 @@ function isUrlValid(url) {
 }
 
 function submitform() {
-  var shortenAPI = ""
-  var redirectAPI = ""
+  var shortenAPI = "https://shitp.st/shorten"
+  var redirectAPI = "https://shitp.st"
   longURL = $('#url').val();
   
   if (! isUrlValid(longURL)) {
