@@ -39,3 +39,12 @@ function copyresult() {
   document.execCommand("Copy");
 }
 
+$(document).ready(function() {
+  $('#url').keydown(function(event) {
+    if (event.keyCode == 13) {
+      submitform();
+      return false;
+    }
+  });
+});
+
