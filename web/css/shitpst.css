@@ -16,7 +16,8 @@ body{
 
 .container{
   position:relative;
-  top:100px;
+  top:40px;
+  min-height: 400;
 }
 
 .container img {
@@ -34,7 +35,8 @@ body{
   color:#fff;
   font-weight:900;
   font-size:2em; 
-  margin-bottom:0; 
+  margin:0em;
+  padding:0px;
 }
 
 .container h2{
@@ -45,6 +47,7 @@ body{
 }
 
 .container p{
+  margin-top:0em;
   font-family:"Pt Sans", helvetica, sans-serif;
   color:#fff; 
   text-align:center;
@@ -69,7 +72,7 @@ body{
 }
 
 .divider {
-    width:160px;
+    width=30;
     height:auto;
     display:inline-block;
 }
@@ -80,7 +83,6 @@ form{
 }
 
 .fields{
-  border-left:2px solid #4c2639
 }
 
 .container span{
@@ -102,7 +104,7 @@ input{
   bottom:14px;
   right:9px;
   border-radius:22px;
-  width:400px;
+  width:300px;
   box-sizing:border-box;
   padding:0 18px; 
 }
@@ -115,19 +117,24 @@ input[type="button"]{
   top:25px; 
   width:100px;
   cursor:pointer;
+  clear: both;
 }
 
-.footer {
-  position:fixed;
+.footer{
+  position:absolute;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.3);
+  padding-top:80;
+  text-align:right;
+  width:95%;
   bottom:0px;
-  left:0px;
-  width:100%;
-  height:30px;   /* Height of the footer */
-  background:rgba(0,0,0,0.2);
-  font-family:"Pt Sans", helvetica, sans-serif;
-  color:#996633;
-  text-align:center;
-  font-size:1em;
-  line-height:30px;
 }
 
+.copyright{
+  font-size:1em;
+  font-family:"Pt Sans", helvetica, sans-serif;
+}
+.copyright a{
+  text-decoration: none;
+  color:inherit;
+}
