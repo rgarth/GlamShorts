@@ -3,6 +3,8 @@ package main
 import (
 	"encoding/json"
 	"net/http"
+  "regexp"
+  "strings"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
@@ -42,6 +44,17 @@ func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 	if err := json.Unmarshal([]byte(request.Body), &rb); err != nil {
 		return resp, err
 	}
+  // Stop shortening self referential URLs
+  matchStr := strings.ToLower(rb.URL)
+  matched, err := regexp.MatchString("http(s?)://([a-z]+\\.)*shitp.st((/)+.*)*$", matchStr)
+	if err != nil {
+		return resp, err
+	}
+  if matched {
+    resp.StatusCode = http.StatusNotAcceptable
+    return resp, nil
+  }
+
 	// Start DynamoDB session
 	sess, err := session.NewSession(&aws.Config{
 		Region: aws.String(Region),

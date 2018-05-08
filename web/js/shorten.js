@@ -25,8 +25,12 @@ function submitform() {
         $( "#short" ).val("Error: Response " + XmlHttpRequest.status);
       }
     },
-    error: function(XMLHttpRequest, textStatus, errorThrown) {
-      $( "#short" ).val("Error: Response " + textStatus);
+    error: function(XmlHttpRequest, textStatus, errorThrown) {
+     if (XmlHttpRequest.status == 406) {
+       $( "#short" ).val("stop it");
+     } else {
+       $( "#short" ).val("Error: Response " + textStatus);
+     }
     },
 
     dataType: "json",
