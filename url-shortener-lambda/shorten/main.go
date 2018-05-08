@@ -63,31 +63,58 @@ func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 		return resp, err
 	}
 	svc := dynamodb.New(sess)
-	// Generate short url
-	shortURL := shortid.MustGenerate()
-	// Because "shorten" endpoint is reserved
-	for shortURL == "shorten" {
-		shortURL = shortid.MustGenerate()
-	}
-	link := &Link{
-		ShortURL: shortURL,
-		LongURL:  rb.URL,
-	}
-	// Marshal link to attribute value map
-	av, err := dynamodbattribute.MarshalMap(link)
-	if err != nil {
-		return resp, err
-	}
-	// Put link
-	input := &dynamodb.PutItemInput{
-		Item:      av,
-		TableName: aws.String(LinksTableName),
-	}
-	if _, err = svc.PutItem(input); err != nil {
-		return resp, err
-	}
+
+  link := Link{}
+  // Lookup existing ShortURL
+  var queryInput = &dynamodb.QueryInput{
+    TableName:     aws.String(LinksTableName),
+    IndexName:     aws.String("long_url-index"),
+    Limit:         aws.Int64(1),
+    KeyConditions: map[string]*dynamodb.Condition{
+      "long_url": {
+        ComparisonOperator: aws.String("EQ"),
+        AttributeValueList:     []*dynamodb.AttributeValue{
+          {
+            S: aws.String(rb.URL),
+          },
+        },
+      },
+    },
+  }
+  result, err := svc.Query(queryInput)
+  if err != nil {
+    return resp, err
+  }
+  if (len(result.Items) > 0) {
+    if err := dynamodbattribute.UnmarshalMap(result.Items[0], &link); err != nil {
+      return events.APIGatewayProxyResponse{}, err
+    }
+  } else {
+    // Generate short url
+	  shortURL := shortid.MustGenerate()
+	  // Because "shorten" endpoint is reserved
+    for shortURL == "shorten" {
+      shortURL = shortid.MustGenerate()
+    }
+    link.ShortURL = shortURL
+    link.LongURL = rb.URL
+
+    // Marshal link to attribute value map
+    av, err := dynamodbattribute.MarshalMap(link)
+    if err != nil {
+      return resp, err
+    }
+    // Put link
+    input := &dynamodb.PutItemInput{
+      Item:      av,
+      TableName: aws.String(LinksTableName),
+    }
+    if _, err = svc.PutItem(input); err != nil {
+      return resp, err
+    }
+  }
 	// Return short url
-	response, err := json.Marshal(Response{ShortURL: shortURL})
+	response, err := json.Marshal(Response{ShortURL: link.ShortURL})
 	if err != nil {
 		return resp, err
 	}
