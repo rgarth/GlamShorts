@@ -138,3 +138,49 @@ input[type="button"]{
   text-decoration: none;
   color:inherit;
 }
+
+.header {
+  display:flex;
+  text-align: left;
+  font-size:1.2em;
+  font-weight:900;
+  font-family:"Pt Sans", helvetica, sans-serif;
+  align-items:center;
+  padding-bottom:30px;
+}
+
+.header img {
+  width:32;
+  height:32;
+  vertical-align:midddle;
+  padding-right:10px;
+}
+
+.header a {
+  text-decoration: none;
+  color:inherit;
+}
+
+.page {
+  display:inline-block;
+  background:#fff;
+  background:rgba(255,255,255,0.85);
+  width:90%;
+  text-align:center;
+  border-radius:9px;
+}
+.page .content {
+  position:relative;
+  text-align:left;
+  text-color:#000;
+  font-family:"Pt Sans", helvetica, sans-serif;
+  font-size:1.2em;
+  padding:20px;
+}
+.page .content table {
+  border-spacing: 10;
+}
+
+.page .content table th {
+  text-align:right
+}

@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>shitpost - API</title>
+    <link rel="stylesheet" type="text/css" href="https://www.shitp.st/css/shitpst.css" media="screen" />
+  </head>
+  <body>
+    <div class="header">
+      <a href="https://shitp.st"><img src="https://www.shitp.st/img/pile-of-poo_1f4a9.png" alt="logo" /></a>
+        <a href="https://shitp.st"><span style="color:black">SHIT</span><span style="color:orange">P<span style="margin: 0 0.12em 0 0.12em">&bull;</span>ST</span></a>
+    </div>
+    <div class="page">
+      <div class="content">
+        <h2>Accessing the API</h2>
+        <p>Yes, we have an JSON API.<p>
+        <table>
+          <tr>
+            <th>API Endpoint:</th><td>http://shitp.st/shorten</td>
+          </tr>
+          <tr>
+            <th>HTTP Method:</th><td>PUT</td>
+          </tr>
+          <tr>
+            <th>Paramater:</th><td>URL</td>
+          </tr>
+          <tr>
+            <th>Output:</th><td>JSON formatted shortURL hash</td>
+          </tr>
+        </table>
+        <h3>Example</h3>
+        <p>Calling the API using cURL:</p>
+<pre><code>$ curl https://shitp.st/shorten -X POST -d '{"url":"http://bit.ly"}'
+{"short_url":"-vFfyinig"} </code></pre>
+        <p>
+          <a href="https://shitp.st/-vFfyinig">https://shitp.st/-vFfyinig</a>
+          now redirects
+        </p>
+      </div>
+    </div>
+    <div class=footer>
+      <p class="copyright">&copy; <a href="https://twitter.com/robgarth">Rob Garth</a>, 2018 | 
+      <a href="https://github.com/rgarth/url-shortener-lambda">GITHUB</a> | 
+      <a href="https://www.shitp.st/api.html">API</a></p>
+    </div>
+  </body>
+</html>
