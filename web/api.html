@@ -1,46 +1,86 @@
-<html>
-  <head>
-    <title>shitpost - API</title>
-    <link rel="stylesheet" type="text/css" href="https://www.shitp.st/css/shitpst.css" media="screen" />
-  </head>
-  <body>
-    <div class="header">
-      <a href="https://shitp.st"><img src="https://www.shitp.st/img/pile-of-poo_1f4a9.png" alt="logo" /></a>
-        <a href="https://shitp.st"><span style="color:black">SHIT</span><span style="color:orange">P<span style="margin: 0 0.12em 0 0.12em">&bull;</span>ST</span></a>
-    </div>
-    <div class="page">
-      <div class="content">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>&#x1f4a9; shitp.st - api</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://www.shitp.st/css/custom.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="http://www.shitp.st/js/shorten.js"></script>
+</head>
+
+<body style="background-color: antiquewhite">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <ul class="nav navbar-nav ml-auto w-100">
+      <li class="nav-item">
+        <a class="nav-link text-uppercase" href="https://shitp.st/">&#x1f4a9;&nbsp; shitp&#x2022st</a>
+      </li>
+    </ul>
+    </button>
+  </nav>
+  <div class="container top-buffer bottom-buffer border-4" style="background-color: white">
+    <div class="row justify-content-center top-buffer">
+      <div class="col align-self-center">
         <h2>Accessing the API</h2>
-        <p>Yes, we have an JSON API.<p>
+        <p>Yes, we have an JSON API.</p>
         <table>
           <tr>
-            <th>API Endpoint:</th><td>http://shitp.st/shorten</td>
+            <th>API Endpoint:</th>
+            <td>http://shitp.st/shorten</td>
           </tr>
           <tr>
-            <th>HTTP Method:</th><td>PUT</td>
+            <th>HTTP Method:</th>
+            <td>PUT</td>
           </tr>
           <tr>
-            <th>Parameter:</th><td>URL</td>
+            <th>Parameter:</th>
+            <td>URL</td>
           </tr>
           <tr>
-            <th>Output:</th><td>JSON formatted shortURL hash</td>
+            <th>Output:</th>
+            <td>JSON formatted shortURL hash</td>
           </tr>
         </table>
+        <br />
         <h3>Example</h3>
-        <p>Calling the API using cURL:</p>
-<pre><code>$ curl https://shitp.st/shorten -X POST -d '{"url":"http://bit.ly"}'
+        <p>In the following example, we will create short link to an competing url shortener,
+          with the side-affect of making the url longer.<p>
+            <p>Calling the API using cURL:</p>
+            <pre><code>$ curl https://shitp.st/shorten -X POST -d '{"url":"http://bit.ly"}'
 {"short_url":"-vFfyinig"} </code></pre>
-        <p>
-          <a href="https://shitp.st/-vFfyinig">https://shitp.st/-vFfyinig</a>
-          now redirects
-        </p>
+            <p>
+              <a href="https://shitp.st/-vFfyinig">https://shitp.st/-vFfyinig</a>
+              now redirects
+            </p>
+            <br />
       </div>
     </div>
-    <div class=footer>
-      <p class="copyright">&copy; <a href="mailto:rgarth@shitp.st">Rob Garth</a>, 2018 |
-      <a href="https://twitter.com/robgarth">TWITTER</a> |
-      <a href="https://github.com/rgarth/url-shortener-lambda">GITHUB</a> |
-      <a href="https://www.shitp.st/api.html">API</a></p>
-    </div>
-  </body>
+    <nav class="navbar navbar-expand-lg fixed-bottom navbar-light">
+      <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link text-nowrap" href="mailto:rgarth@shitp.st">&copy; Rob Garth, 2018</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-uppercase" href="https://twitter.com/robgarth">twitter</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-uppercase" href="https://github.com/rgarth/url-shortener-lambda">Github</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-uppercase" href="https://www.shitp.st/api.html">API</a></p>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</body>
+
 </html>
