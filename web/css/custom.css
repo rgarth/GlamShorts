@@ -35,3 +35,11 @@
      -moz-border-radius: 10px;
           border-radius: 10px;
 }
+
+.footer {
+    position: absolute;
+}
+
+html, body {
+    height: 100%;
+}
