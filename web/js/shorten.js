@@ -39,8 +39,13 @@ function submitform() {
 }
 
 function copyresult() {
-  $("#short").select();
-  document.execCommand("Copy");
+  var short = document.getElementById('short');
+  short.contentEditable = true;
+  short.readOnly = false;
+  short.select();
+  document.execCommand('copy');
+  short.contentEditable = false;
+  short.readOnly = true;
 }
 
 $(document).ready(function() {
