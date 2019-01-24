@@ -1,6 +1,6 @@
 
-@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,400italic);
-@import url(https://fonts.googleapis.com/css?family=Droid+Serif);
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans);
+
 
 .logo {
     font-size: 112px;
@@ -12,12 +12,13 @@
           border-radius: 10px;
 }
 
-.container h1, .container span{
-  font-family:"Pt Sans", helvetica, sans-serif;
+*{
+  font-family:"Josefin Sans", serif;
+  font-weight: lighter;
 }
 
 .container h1 {
-    font-weight:900;
+    font-weight: 900;
 }
 
 .top-buffer { 
