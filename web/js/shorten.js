@@ -8,6 +8,9 @@ function submitform() {
   longURL = $('#url').val();
   var short_text = document.getElementById('short');
 
+  if (!/^(https?|s?ftp):\/\//.test(longURL)) {
+    longURL = "http://".concat(longURL)
+  }
   if (!isUrlValid(longURL)) {
     short_text.value = ("Error: Invalid URL");
     return;
